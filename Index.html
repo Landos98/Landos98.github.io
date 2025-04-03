@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pablo Landos Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="Icon.svg" />
+  <style>
+    :root {
+      --primary: #ffffff;
+      --secondary: #999;
+      --bg: #0f0f0f;
+      --accent: #00ccff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--primary);
+    }
+
+    header, .different-section, .portfolio-section, footer {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .intro-text, .different-text {
+      flex: 1 1 500px;
+      padding: 20px;
+    }
+
+    .intro-text h1, .different-text h2, .portfolio-section h2, .footer-section h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .intro-text h1 em, .different-text h2 em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .intro-text p, .different-text p {
+      margin: 20px 0;
+      font-size: 1.1rem;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    .cta-button, .browse-button, .footer-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 20px;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--primary);
+      margin-top: 20px;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    .cta-button:hover, .browse-button:hover, .footer-button:hover {
+      background-color: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+
+    .profile-image, .different-emoji {
+      flex: 1 1 300px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .profile-image img, .different-emoji img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    .different-emoji {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+  .intro-text,
+  .different-text,
+  .footer-section {
+    text-align: center;
+  }
+
+  .cta-button,
+  .browse-button,
+  .footer-button {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+      header, .different-section {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+      }
+
+      .different-emoji {
+        display: none;
+      }
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+      text-decoration: none;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-card h3 {
+      padding: 15px;
+      font-size: 1.2rem;
+      text-align: center;
+      background-color: #111;
+      color: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--secondary);
+      font-size: 0.95rem;
+    }
+
+    .footer-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .footer-button {
+      margin-bottom: 30px;
+    }
+
+    .footer-logo {
+      margin: 20px 0;
+    }
+
+    .footer-logo img {
+      height: 50px;
+      opacity: 0.85;
+    }
+
+    .footer-time {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-copy {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+<!-- Resto del documento sin cambios -->
+  <!-- HEADER SECTION -->
+  <header>
+    <div class="intro-text">
+      <p>👋 Hey, I'm Pablo</p>
+      <h1>Obsessed with creating <em>timeless</em><br />digital experiences with <strong>AI</strong>.</h1>
+      <p>
+        My passion lies in leveraging cutting-edge technologies to streamline
+        business processes and enhance digital presence. With strong expertise
+        in AI-powered automation systems
+      </p>
+      <a href="https://wa.link/amfm2j" class="cta-button">📩 Get In Touch</a>
+    </div>
+    <div class="profile-image">
+      <img src="YoGhibli.png" alt="Pablo Landos" />
+    </div>
+  </header>
+
+  <!-- DIFFERENTIATOR SECTION -->
+  <section class="different-section">
+    <div class="different-emoji">
+      <img src="YoGhibli4Definitivo.svg" alt="Different Emoji" />
+    </div>
+    <div class="different-text">
+      <h2>What makes me <em>different?</em></h2>
+      <p>
+        What sets me apart from others is my expertise in AI-powered automation systems,
+        along with strong skills in social media management and content creation.
+        I offer a holistic approach to driving efficiency and engagement across diverse digital platforms.
+      </p>
+      <a href="#portfolio" class="browse-button">֎ Browse My Work</a>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section class="portfolio-section" id="portfolio">
+    <h2>Projects I've Contributed To</h2>
+    <div class="portfolio-grid">
+      <a class="project-card" href="https://emprende.marketero.vip/inicio_emprende" target="_blank">
+        <img src="1.svg" alt="AI ChatBots">
+        <h3>AI Lead Capture Funnels</h3>
+      </a>
+      <a class="project-card" href="https://davinciai.escritorfacil.com" target="_blank">
+        <img src="2.svg" alt="Lead Capture Funnels">
+        <h3>AI Marketing Tools</h3>
+      </a>
+      <a class="project-card" href="https://tornpages.org" target="_blank">
+        <img src="3.svg" alt="Automated Emailing">
+        <h3>Social Media Content</h3>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer-section">
+    <h2>How I can help you?</h2>
+    <a href="https://wa.link/amfm2j" class="footer-button">📩 Get In Touch</a>
+    <div class="footer-logo">
+      <img src="Firma.svg" alt="Pablo Landos Signature">
+    </div>
+    <div class="footer-time">
+      <span id="local-time"></span> — San Salvador, El Salvador<br>
+      <span id="local-date"></span>
+    </div>
+    <div class="footer-copy">
+      © 2025 Pablo Landos. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Show local time and date in San Salvador
+    const updateTime = () => {
+      const now = new Date();
+      const options = { timeZone: 'America/El_Salvador', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const dateOptions = { timeZone: 'America/El_Salvador', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('local-time').textContent = new Intl.DateTimeFormat('en-US', options).format(now);
+      document.getElementById('local-date').textContent = new Intl.DateTimeFormat('en-US', dateOptions).format(now);
+    };
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
