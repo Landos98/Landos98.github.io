@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pablo Landos Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="Icon.svg" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <style>
     :root {
       --primary: #ffffff;
       --secondary: #999;
-      --bg: #0f0f0f;
       --accent: #00ccff;
       --highlight: #1e1e1e;
     }
@@ -22,9 +22,19 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
       color: var(--primary);
       scroll-behavior: smooth;
+      position: relative;
+      z-index: 1;
+    }
+
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
     }
 
     header, .different-section, .portfolio-section, footer {
@@ -217,86 +227,122 @@
   </style>
 </head>
 <body>
-<!-- Resto del documento sin cambios -->
-  <!-- HEADER SECTION -->
-  <header>
-    <div class="intro-text">
-      <p>👋 Hey, I'm Pablo</p>
-      <h1>Obsessed with creating <em>timeless</em><br />digital experiences with <strong>AI</strong>.</h1>
-      <p>
-        My passion lies in leveraging cutting-edge technologies to streamline
-        business processes and enhance digital presence. With strong expertise
-        in AI-powered automation systems
-      </p>
-      <a href="https://wa.link/amfm2j" class="cta-button">📩 Get In Touch</a>
-    </div>
-    <div class="profile-image">
-      <img src="YoGhibli.png" alt="Pablo Landos" />
-    </div>
-  </header>
+<div id="tsparticles"></div>
 
-  <!-- DIFFERENTIATOR SECTION -->
-  <section class="different-section">
-    <div class="different-emoji">
-      <img src="YoGhibli4Definitivo.svg" alt="Different Emoji" />
-    </div>
-    <div class="different-text">
-      <h2>What makes me <em>different?</em></h2>
-      <p>
-        What sets me apart from others is my expertise in AI-powered automation systems,
-        along with strong skills in social media management and content creation.
-        I offer a holistic approach to driving efficiency and engagement across diverse digital platforms.
-      </p>
-      <a href="#portfolio" class="browse-button">֎ Browse My Work</a>
-    </div>
-  </section>
+<!-- HEADER SECTION -->
+<header>
+  <div class="intro-text">
+    <p>👋 Hey, I'm Pablo</p>
+    <h1>Obsessed with creating <em>timeless</em><br />digital experiences with <strong>AI</strong>.</h1>
+    <p>
+      My passion lies in leveraging cutting-edge technologies to streamline
+      business processes and enhance digital presence. With strong expertise
+      in AI-powered automation systems.
+    </p>
+    <a href="https://wa.link/amfm2j" class="cta-button">📩 Get In Touch</a>
+  </div>
+  <div class="profile-image">
+    <img src="YoGhibli.png" alt="Pablo Landos" />
+  </div>
+</header>
 
-  <!-- PORTFOLIO SECTION -->
-  <section class="portfolio-section" id="portfolio">
-    <h2>Projects I've Contributed To</h2>
-    <div class="portfolio-grid">
-      <a class="project-card" href="https://emprende.marketero.vip/inicio_emprende" target="_blank">
-        <img src="1.svg" alt="AI ChatBots">
-        <h3>AI Lead Capture Funnels</h3>
-      </a>
-      <a class="project-card" href="https://davinciai.escritorfacil.com" target="_blank">
-        <img src="2.svg" alt="Lead Capture Funnels">
-        <h3>AI Marketing Tools</h3>
-      </a>
-      <a class="project-card" href="https://tornpages.org" target="_blank">
-        <img src="3.svg" alt="Automated Emailing">
-        <h3>Social Media Content</h3>
-      </a>
-    </div>
-  </section>
+<!-- DIFFERENTIATOR SECTION -->
+<section class="different-section">
+  <div class="different-emoji">
+    <img src="YoGhibli4Definitivo.svg" alt="Different Emoji" />
+  </div>
+  <div class="different-text">
+    <h2>What makes me <em>different?</em></h2>
+    <p>
+      What sets me apart from others is my expertise in AI-powered automation systems,
+      along with strong skills in social media management and content creation.
+      I offer a holistic approach to driving efficiency and engagement across diverse digital platforms.
+    </p>
+    <a href="#portfolio" class="browse-button">֎ Browse My Work</a>
+  </div>
+</section>
 
-  <!-- FOOTER SECTION -->
-  <footer class="footer-section">
-    <h2>How can I help you?</h2>
-    <a href="https://wa.link/amfm2j" class="footer-button">📩 Get In Touch</a>
-    <div class="footer-logo">
-      <img src="Firma.svg" alt="Pablo Landos Signature">
-    </div>
-    <div class="footer-time">
-      <span id="local-time"></span> — San Salvador, El Salvador<br>
-      <span id="local-date"></span>
-    </div>
-    <div class="footer-copy">
-      © 2025 Pablo Landos. All rights reserved.
-    </div>
-  </footer>
+<!-- PORTFOLIO SECTION -->
+<section class="portfolio-section" id="portfolio">
+  <h2>Projects I've Contributed To</h2>
+  <div class="portfolio-grid">
+    <a class="project-card" href="https://emprende.marketero.vip/inicio_emprende" target="_blank">
+      <img src="1.svg" alt="AI ChatBots">
+      <h3>AI Lead Capture Funnels</h3>
+    </a>
+    <a class="project-card" href="https://davinciai.escritorfacil.com" target="_blank">
+      <img src="2.svg" alt="Lead Capture Funnels">
+      <h3>AI Marketing Tools</h3>
+    </a>
+    <a class="project-card" href="https://tornpages.org" target="_blank">
+      <img src="3.svg" alt="Automated Emailing">
+      <h3>Social Media Content</h3>
+    </a>
+  </div>
+</section>
 
-  <script>
-    // Show local time and date in San Salvador
-    const updateTime = () => {
-      const now = new Date();
-      const options = { timeZone: 'America/El_Salvador', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-      const dateOptions = { timeZone: 'America/El_Salvador', year: 'numeric', month: 'long', day: 'numeric' };
-      document.getElementById('local-time').textContent = new Intl.DateTimeFormat('en-US', options).format(now);
-      document.getElementById('local-date').textContent = new Intl.DateTimeFormat('en-US', dateOptions).format(now);
-    };
-    updateTime();
-    setInterval(updateTime, 1000);
-  </script>
+<!-- FOOTER SECTION -->
+<footer class="footer-section">
+  <h2>How can I help you?</h2>
+  <a href="https://wa.link/amfm2j" class="footer-button">📩 Get In Touch</a>
+  <div class="footer-logo">
+    <img src="Firma.svg" alt="Pablo Landos Signature">
+  </div>
+  <div class="footer-time">
+    <span id="local-time"></span> — San Salvador, El Salvador<br>
+    <span id="local-date"></span>
+  </div>
+  <div class="footer-copy">
+    © 2025 Pablo Landos. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Local time
+  const updateTime = () => {
+    const now = new Date();
+    const options = { timeZone: 'America/El_Salvador', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const dateOptions = { timeZone: 'America/El_Salvador', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('local-time').textContent = new Intl.DateTimeFormat('en-US', options).format(now);
+    document.getElementById('local-date').textContent = new Intl.DateTimeFormat('en-US', dateOptions).format(now);
+  };
+  updateTime();
+  setInterval(updateTime, 1000);
+
+  // Particles.js
+  tsParticles.load("tsparticles", {
+    background: {
+      color: { value: "#0f0f0f" }
+    },
+    fpsLimit: 60,
+    particles: {
+      color: { value: "#00ccff" },
+      links: {
+        color: "#00ccff",
+        distance: 150,
+        enable: true,
+        opacity: 0.3,
+        width: 1
+      },
+      collisions: { enable: false },
+      move: {
+        direction: "none",
+        enable: true,
+        outModes: "bounce",
+        random: false,
+        speed: 1,
+        straight: false
+      },
+      number: {
+        density: { enable: true, area: 800 },
+        value: 40
+      },
+      opacity: { value: 0.3 },
+      shape: { type: "circle" },
+      size: { value: { min: 1, max: 4 } }
+    },
+    detectRetina: true
+  });
+</script>
 </body>
 </html>
