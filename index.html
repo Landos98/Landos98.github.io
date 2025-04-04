@@ -247,10 +247,102 @@
   background: var(--accent);
   color: #000;
 }
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.spinner {
+  border: 4px solid #333;
+  border-top: 4px solid var(--accent);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.loading-text {
+  color: var(--primary);
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+body.loaded #loader {
+  opacity: 0;
+  visibility: hidden;
+}
+.quote-section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.quote-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+#quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#quote-form input,
+#quote-form textarea {
+  padding: 12px 15px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+#quote-form input:focus,
+#quote-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#quote-form button {
+  background: var(--accent);
+  color: #000;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#quote-form button:hover {
+  background: #00b3e6;
+}
 
   </style>
 </head>
 <body>
+  <div id="loader">
+    <div class="spinner"></div>
+    <p class="loading-text">Loading Pablo Landos...</p>
+  </div>
+  
 <div id="tsparticles"></div>
 
 <!-- HEADER SECTION -->
@@ -307,6 +399,23 @@
       <h3>Social Media Content</h3>
     </a>
   </div>
+</section>
+<section class="quote-section" id="quote">
+  <h2>Request a Free Quote</h2>
+  <form id="quote-form" action="https://formsubmit.co/pablolandos04@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <input type="text" name="service" placeholder="Service You Need" required />
+    <textarea name="details" rows="5" placeholder="Tell me a bit about your project..." required></textarea>
+  
+    <!-- Opcional: redireccionar después del envío -->
+    <input type="hidden" name="_next" value="https://landos98.github.io/thanks.html">
+    <!-- Evita captcha -->
+    <input type="hidden" name="_captcha" value="false">
+  
+    <button type="submit">📨 Send Request</button>
+  </form>
+  
 </section>
 
 <!-- FOOTER SECTION -->
@@ -383,7 +492,13 @@
       diffDesc: "What sets me apart from others is my expertise in AI-powered automation systems, along with strong skills in social media management and content creation. I offer a holistic approach to driving efficiency and engagement across diverse digital platforms.",
       browse: "֎ Browse My Work",
       projects: "Projects I've Contributed To",
-      help: "How I can help you?"
+      help: "How I can help you?",
+      formTitle: "Request a Free Quote",
+      formName: "Your Name",
+      formEmail: "Your Email",
+      formService: "Service You Need",
+      formDetails: "Tell me a bit about your project...",
+      formButton: "📨 Send Request"
     },
     es: {
       introP: "👋 Hola, soy Pablo",
@@ -394,7 +509,13 @@
       diffDesc: "Lo que me diferencia es mi experiencia en sistemas de automatización con IA, además de habilidades en gestión de redes sociales y creación de contenido. Ofrezco un enfoque integral para mejorar la eficiencia y el engagement digital.",
       browse: "֎ Ver Mi Trabajo",
       projects: "Proyectos en los que he contribuido",
-      help: "¿Cómo puedo ayudarte?"
+      help: "¿Cómo puedo ayudarte?",
+      formTitle: "Solicita una Cotización Gratis",
+      formName: "Tu Nombre",
+      formEmail: "Tu Correo Electrónico",
+      formService: "Servicio que necesitas",
+      formDetails: "Cuéntame un poco sobre tu proyecto...",
+      formButton: "📨 Enviar Solicitud"
     }
   };
 
@@ -412,7 +533,30 @@
     document.querySelector('.portfolio-section h2').innerHTML = t.projects;
     document.querySelector('.footer-section h2').innerHTML = t.help;
     document.querySelector('.footer-button').innerHTML = t.getInTouch;
+
+    // Formulario
+    document.querySelector('.quote-section h2').innerHTML = t.formTitle;
+    document.querySelector('input[name=name]').placeholder = t.formName;
+    document.querySelector('input[name=email]').placeholder = t.formEmail;
+    document.querySelector('input[name=service]').placeholder = t.formService;
+    document.querySelector('textarea[name=details]').placeholder = t.formDetails;
+    document.querySelector('#quote-form button').innerHTML = t.formButton;
   }
 </script>
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+<script>
+  const form = document.getElementById("quote-form");
+  form.addEventListener("submit", () => {
+    setTimeout(() => {
+      alert("✅ Thank you! I will get back to you shortly.");
+    }, 100);
+  });
+</script>
+
+
 </body>
 </html>
