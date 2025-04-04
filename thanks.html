@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You!</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #00ccff;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+    a {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #00ccff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    a:hover {
+      background: #00b3e6;
+    }
+    #lang-switcher {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+    #lang-switcher button {
+      background: transparent;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      margin-left: 10px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 0.9rem;
+    }
+    #lang-switcher button:hover {
+      background: #00ccff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="lang-switcher">
+    <button onclick="setLanguage('en')">🇺🇸 EN</button>
+    <button onclick="setLanguage('es')">🇪🇸 ES</button>
+  </div>
+
+  <h1 id="title">✅ Thank you!</h1>
+  <p id="message">Your request has been received. I'll get back to you shortly.</p>
+  <a href="index.html" id="back-link">⬅ Back to Home</a>
+
+  <script>
+    const translations = {
+      en: {
+        title: "✅ Thank you!",
+        message: "Your request has been received. I'll get back to you shortly.",
+        back: "⬅ Back to Home"
+      },
+      es: {
+        title: "✅ ¡Gracias!",
+        message: "Tu solicitud ha sido recibida. Me comunicaré contigo pronto.",
+        back: "⬅ Volver al Inicio"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("message").textContent = t.message;
+      document.getElementById("back-link").textContent = t.back;
+    }
+  </script>
+</body>
+</html>
