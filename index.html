@@ -335,6 +335,56 @@ body.loaded #loader {
   background: #00b3e6;
 }
 
+.icon-carousel-wrapper {
+  width: 100%;
+  max-width: 1000px; /* antes 800px */
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto 80px;
+}
+
+.icon-carousel {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  animation: scroll 20s linear infinite;
+  width: fit-content;
+}
+
+.icon-carousel img {
+  width: 64px;
+  height: 64px;
+  background: #111;
+  border-radius: 24px;
+  padding: 12px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.icon-carousel img:hover {
+  transform: scale(1.15);
+}
+
+.icon-carousel .icon-set {
+  display: flex;
+  gap: 40px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@media (min-width: 1024px) {
+  .icon-carousel-wrapper {
+    max-width: 1200px; /* más amplio en pantallas grandes */
+    gap: 60px; /* más espacio entre íconos */
+  }
+}
   </style>
 </head>
 <body>
@@ -364,6 +414,32 @@ body.loaded #loader {
   <div class="profile-image">
     <img src="YoGhibli.png" alt="Pablo Landos" />
   </div>
+  
+  <div class="icon-carousel-wrapper">
+    <div class="icon-carousel">
+      <div class="icon-set">
+        <img src="GPT.svg" alt="Figma" />
+        <img src="FRM.svg" alt="Framer" />
+        <img src="GHL.svg" alt="Tool" />
+        <img src="HTML.svg" alt="Webflow" />
+        <img src="CSS.svg" alt="Notion" />
+        <img src="FIG.svg" alt="Figma again" />
+        <img src="WRP.svg" alt="Figma again" />
+        <img src="NOS.svg" alt="Figma again" />
+      </div>
+      <div class="icon-set">
+        <img src="GPT.svg" alt="Figma" />
+        <img src="FRM.svg" alt="Framer" />
+        <img src="GHL.svg" alt="Tool" />
+        <img src="HTML.svg" alt="Webflow" />
+        <img src="CSS.svg" alt="Notion" />
+        <img src="FIG.svg" alt="Figma again" />
+        <img src="WRP.svg" alt="Figma again" />
+        <img src="NOS.svg" alt="Figma again" />
+      </div>
+    </div>
+  </div>
+  
 </header>
 
 <!-- DIFFERENTIATOR SECTION -->
@@ -409,7 +485,7 @@ body.loaded #loader {
     <textarea name="details" rows="5" placeholder="Tell me a bit about your project..." required></textarea>
   
     <!-- Opcional: redireccionar después del envío -->
-    <input type="hidden" name="_next" value="https://landos98.github.io/thanks">
+    <input type="hidden" name="_next" value="https://landos98.github.io/thanks.html">
     <!-- Evita captcha -->
     <input type="hidden" name="_captcha" value="false">
   
