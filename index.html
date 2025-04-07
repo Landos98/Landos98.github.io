@@ -29,13 +29,14 @@
     }
 
     #tsparticles {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
-    }
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #0f0f0f; /* Asegura el fondo si los scripts fallan */
+}
 
     header, .different-section, .portfolio-section, footer {
       padding: 40px 20px;
@@ -385,8 +386,20 @@ body.loaded #loader {
     gap: 60px; /* más espacio entre íconos */
   }
 }
+
 html, body {
   background-color: #0f0f0f;
+  overflow-x: hidden;
+}
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0f0f0f;
+  z-index: -2;
 }
 
   </style>
